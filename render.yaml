@@ -1,0 +1,27 @@
+# ── Render Blueprint — એક જ Web Service માં frontend + backend ──
+# વપરાશ: Render Dashboard → New → Blueprint → આ repo પસંદ કરો.
+# (અથવા Web Service જાતે બનાવો: Build Command `npm run build`, Start Command `npm start`)
+services:
+  - type: web
+    name: ems-app
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      # ટેસ્ટ/ડેમો ડિપ્લોય: DB વગર ચાલે (in-memory, ઑટો-સીડ). કાયમી ડેટા જોઈએ તો MONGODB_URI સેટ કરો.
+      - key: ALLOW_DEMO_MODE
+        value: "true"
+      - key: MONGODB_URI
+        sync: false
+      - key: SEED_DEMO_DATA
+        value: "true"
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true

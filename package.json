@@ -1,0 +1,17 @@
+{
+  "name": "ems",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Company-level Employee Management System — React + Node.js + MongoDB (single-service deploy capable)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix server install --no-audit --no-fund && npm --prefix client install --no-audit --no-fund && npm --prefix client run build",
+    "start": "node server/src/server.js",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "test:full": "npm --prefix server run test:full"
+  }
+}

@@ -1,0 +1,7 @@
+**/node_modules
+**/dist
+.git
+*.log
+server/uploads
+server/.env
+samples
